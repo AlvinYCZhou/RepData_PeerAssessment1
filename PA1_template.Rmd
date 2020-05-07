@@ -1,9 +1,9 @@
 ---
 title: 'Reproducible Research: Peer Assessment 1'
 output:
+  pdf_document: default
   html_document:
     keep_md: yes
-  pdf_document: default
 ---
 ```{r setoptions, echo=FALSE}
 knitr::opts_chunk$set(echo=FALSE,results ="hide",message=FALSE,warning=FALSE,cache = TRUE)
@@ -128,8 +128,18 @@ wsteps=gather(wsteps,key="wk",value="steps",-time)
 
 # Ploting a time series graph
 par(mar=c(5,4,1,1),mfrow=c(2,1))
-qplot(data=wsteps,time,steps,color=wk,geom="line")+scale_x_datetime(date_labels = "%H:%M")+labs(color="Days")
-qplot(data=wsteps,time,steps,geom="line",facets=~wk,color=wk)+scale_x_datetime(date_labels = "%H:%M")+labs(color="Days")
+qplot(data=wsteps,time,steps,color=wk,geom="line")+
+        scale_x_datetime(date_labels = "%H:%M")+
+        labs(color="Days",
+             title="Average Daily Activity Pattern",
+             x="Time",
+             y="Average Steps in 5 minutes interval")
+qplot(data=wsteps,time,steps,geom="line",facets=~wk,color=wk)+
+        scale_x_datetime(date_labels = "%H:%M")+
+        labs(color="Days",
+             title="Average Daily Activity Pattern",
+             x="Time",
+             y="Average Steps in 5 minutes interval")
 ```
 
 Compare two patterns in the graph above, we could see that the walking pattern in weekdays have four obvious peaks around 8:00, 12:00, 16:00 and 19:00, which shows a general moving pattern in our daily weekdays. 
