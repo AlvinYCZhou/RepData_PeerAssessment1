@@ -1,3 +1,5 @@
+## All the graph files are stored in /PA1_template_files/figure_html
+
 ## Introduction
 
 It is now possible to collect a large amount of data about personal
